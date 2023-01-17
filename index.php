@@ -1,3 +1,9 @@
+<?php 
+
+define('_RECIPES_IMG_PATH', 'uploads/recipes');
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,6 +18,15 @@
     <title>Document</title>
 </head>
 <body>
+
+<?php
+  $recipes = [
+    ["title"=> "Mousse au chocolat", "description"=> "Une bonne mousse", "img" =>'1-chocolate-au-mousse.jpg'],
+    ["title"=> "Gratin dauphinois", "description"=> "Un bon gratin ", "img" =>'2-gratin-dauphinois.jpg'],
+    ["title"=> "Salade de chèvre", "description"=> "Une bonne salade", "img" =>'3-salade.jpg'],
+  ];
+?>
+
 <div class="container">
     <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
       <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
@@ -51,6 +66,7 @@
   </div>
 
   <div class="container px-4 py-5" id="custom-cards">
+    <?php foreach ($recipes as $recipe) { ?>
     <h2 class="pb-2 border-bottom">Custom cards</h2>
 
     <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
@@ -74,9 +90,10 @@
           </div>
         </div>
       </div>
+      <?php } ?>
 
       <div class="col">
-        <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('unsplash-photo-2.jpg');">
+        <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('uploads/recipes/2-gratin-dauphinois.jpg');">
           <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
             <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Much longer title that wraps to multiple lines</h3>
             <ul class="d-flex list-unstyled mt-auto">
@@ -97,7 +114,7 @@
       </div>
 
       <div class="col">
-        <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('unsplash-photo-3.jpg');">
+        <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('uploads/recipes/3-salade.jpg');">
           <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
             <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Another longer title belongs here</h3>
             <ul class="d-flex list-unstyled mt-auto">
