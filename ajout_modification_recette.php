@@ -5,7 +5,9 @@ require_once('lib/recipe.php');
 
 ?>
 
-<form method="POST"></form>
+<form method="POST" enctype="multipart/form-data">
+
+</form>
 
 <?php
 require_once('templates/footer.php');
