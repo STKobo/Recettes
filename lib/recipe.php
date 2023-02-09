@@ -17,7 +17,7 @@ function getRecipeImage(string|null $image){
 }
 
 function getRecipes(PDO $pdo, int $limit = null){
-    $sql = 'SELECT * FROM recipes ORDER BY id DESC';
+    $sql = 'SELECT * FROM recipes ORDER BY RAND() DESC';
 
     if($limit) {
         $sql .= ' LIMIT :limit';
@@ -28,7 +28,7 @@ function getRecipes(PDO $pdo, int $limit = null){
     if($limit){
         $query->bindParam(':limit', $limit, PDO::PARAM_INT);
     }
-    
+
     $query->execute();
     $recipes = $query->fetchAll(); 
 }
