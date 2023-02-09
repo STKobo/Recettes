@@ -3,7 +3,9 @@ require_once('templates/header.php');
 require_once('lib/tools.php');
 require_once('lib/recipe.php');
 
-
+if(isset($_POST['saveRecipe'])){
+    $res = saveRecipe($pdo, $_POST['category'], $_POST['title'], $_POST['description'], $_POST['ingredients'], $_POST['instructions'], null);
+}
 
 ?>
 
