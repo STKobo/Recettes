@@ -15,3 +15,11 @@ function getRecipeImage(string|null $image){
         return _RECIPES_IMG_PATH_.$image;
         }
 }
+
+function getRecipes(PDO $pdo, int $limit = null){
+    $sql = 'SELECT * FROM recipes ORDER BY id DESC';
+
+    $query = $pdo->prepare($sql);
+    $query->execute();
+    $recipes = $query->fetchAll(); 
+}

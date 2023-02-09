@@ -1,6 +1,8 @@
 <?php
   require_once('templates/header.php');
   require_once('lib/recipe.php');
+
+  $recipes = getRecipes($pdo, 6);
 ?>
 
 

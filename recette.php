@@ -3,14 +3,11 @@ require_once('templates/header.php');
 require_once('lib/tools.php');
 require_once('lib/recipe.php');
 
-
-
 $id = $_GET['id'];
 
 $recipe = getRecipeByID($pdo, $id);
 
 if($recipe){ 
-    
     $ingredients = linesToArray($recipe['ingredients']);
     $instructions = linesToArray($recipe['instructions']);
     
@@ -37,7 +34,7 @@ if($recipe){
 
 <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
     <h2>Instructions</h2>
-   <ol class="list-group">
+   <ol class="list-group-numbered">
     <?php foreach ($instructions as $key => $instruction) { ?>
         <li class="list-group-item"><?= $instruction ;?></li>
     <?php } ?>
