@@ -20,11 +20,15 @@ if(isset($_POST['saveRecipe'])){
 <h1>Ajouter une recette</h1>
 
 <?php foreach ($messages as $message) { ?>
-
     <div class="alert alert-success">
         <?= $message; ?>
     </div>
+<?php }?>
 
+<?php foreach ($errors as $error) { ?>
+    <div class="alert alert-danger">
+        <?= $error; ?>
+    </div>
 <?php }?>
 
 <form method="POST" enctype="multipart/form-data">
