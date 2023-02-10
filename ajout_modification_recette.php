@@ -3,11 +3,29 @@ require_once('templates/header.php');
 require_once('lib/tools.php');
 require_once('lib/recipe.php');
 
+$errors = [];
+$messages = [];
+
 if(isset($_POST['saveRecipe'])){
     $res = saveRecipe($pdo, $_POST['category'], $_POST['title'], $_POST['description'], $_POST['ingredients'], $_POST['instructions'], null);
+    if ($res) {
+        $messages[] = "La recette a bien été sauvegardée";
+    } else {
+        $errors[] = "La recette n'a pas été sauvegardée";
+    }
 }
 
 ?>
+
+<h1>Ajouter une recette</h1>
+
+<?php foreach ($messages as $message) { ?>
+
+    <div class="alert alert-success">
+        <?= $message; ?>
+    </div>
+
+<?php }?>
 
 <form method="POST" enctype="multipart/form-data">
     <div class="mb-3">
