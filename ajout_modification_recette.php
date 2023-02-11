@@ -11,7 +11,7 @@ $categories = getCategories($pdo);
 
 if(isset($_POST['saveRecipe'])){
     
-    var_dump($_FILES);
+    var_dump($_FILES['file']);
     
     /*$res = saveRecipe($pdo, $_POST['category'], $_POST['title'], $_POST['description'], $_POST['ingredients'], $_POST['instructions'], null);
     if ($res) {
