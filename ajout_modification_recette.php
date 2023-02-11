@@ -11,7 +11,14 @@ $categories = getCategories($pdo);
 
 if(isset($_POST['saveRecipe'])){
     
-    if( isset($_FILES['file']['tmp_name']) && isset($_FILES['file']['tmp_name']));
+    if( isset($_FILES['file']['tmp_name']) && isset($_FILES['file']['tmp_name']) != ''){
+        $checkImage = getimagesize($_FILES['file']['tmp_name']);
+        if($checkImage !== false){
+
+        } else {
+            
+        }
+    }
     
     /*$res = saveRecipe($pdo, $_POST['category'], $_POST['title'], $_POST['description'], $_POST['ingredients'], $_POST['instructions'], null);
     if ($res) {
