@@ -10,12 +10,17 @@ $messages = [];
 $categories = getCategories($pdo);
 
 if(isset($_POST['saveRecipe'])){
-    $res = saveRecipe($pdo, $_POST['category'], $_POST['title'], $_POST['description'], $_POST['ingredients'], $_POST['instructions'], null);
+    
+    var_dump($_FILES);
+    
+    /*$res = saveRecipe($pdo, $_POST['category'], $_POST['title'], $_POST['description'], $_POST['ingredients'], $_POST['instructions'], null);
     if ($res) {
         $messages[] = "La recette a bien été sauvegardée";
     } else {
         $errors[] = "La recette n'a pas été sauvegardée";
     }
+
+    */
 }
 
 ?>
