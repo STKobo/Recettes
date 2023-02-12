@@ -85,7 +85,7 @@ if(isset($_POST['saveRecipe'])){
         <label for="category" class="form-label">Catégorie</label>
         <select name="category" id="category" class="form-select">
             <?php foreach ($categories as $category) {  ?>
-                <option value="<?= $category['id']; ?>"><?= $category['name'];?></option>
+                <option value="<?= $category['id']; ?>"><?php if ($recipe['category_id'] == $category['id']) {echo 'selected="selected"';} ?></option>
             <?php } ?>
         </select>
     </div>
