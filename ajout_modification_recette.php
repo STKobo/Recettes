@@ -10,25 +10,28 @@ $messages = [];
 $categories = getCategories($pdo);
 
 if(isset($_POST['saveRecipe'])){
-    
+    $fileName = null;
     if( isset($_FILES['file']['tmp_name']) && isset($_FILES['file']['tmp_name']) != ''){
         $checkImage = getimagesize($_FILES['file']['tmp_name']);
         if($checkImage !== false){
-            $fileName = uniqid().'-'.$_FILES['file']['name'];
+            $fileName = uniqid().'-'.slugify($_FILES['file']['name']);
             move_uploaded_file($_FILES['file']['tmp_name'], _RECIPES_IMG_PATH_.$fileName);
         } else {
             $errors[] = "Le fichier doit être une image";
         }
     }
     
-    /*$res = saveRecipe($pdo, $_POST['category'], $_POST['title'], $_POST['description'], $_POST['ingredients'], $_POST['instructions'], null);
-    if ($res) {
-        $messages[] = "La recette a bien été sauvegardée";
-    } else {
-        $errors[] = "La recette n'a pas été sauvegardée";
+    if(!$errors) {
+        $res = saveRecipe($pdo, $_POST['category'], $_POST['title'], $_POST['description'], $_POST['ingredients'], $_POST['instructions'], $fileName);
+        if ($res) {
+            $messages[] = "La recette a bien été sauvegardée";
+        } else {
+            $errors[] = "La recette n'a pas été sauvegardée";
+        }
     }
+    
 
-    */
+    
 }
 
 ?>
