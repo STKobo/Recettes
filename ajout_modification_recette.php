@@ -36,7 +36,14 @@ if(isset($_POST['saveRecipe'])){
             $errors[] = "La recette n'a pas été sauvegardée";
         }
     }
-    
+
+    $recipe = [
+        'title' => $_POST['title'],
+        'description' => $_POST['description'],
+        'ingredients' => $_POST['ingredients'],
+        'instructions' => $_POST['instructions'], 
+        'category_id' => $_POST['category'],
+    ];
 
     
 }
@@ -60,19 +67,19 @@ if(isset($_POST['saveRecipe'])){
 <form method="POST" enctype="multipart/form-data">
     <div class="mb-3">
         <label for="title" class="form-label">Titre</label>
-        <input type="text" name="title" id="title" class="form-control">
+        <input type="text" name="title" id="title" class="form-control" value="<?=$recipe['title'] ;?>">
     </div>
     <div class="mb-3">
         <label for="description" class="form-label">Description</label>
-        <textarea name="description" id="description" cols="30" rows="5"></textarea>
+        <textarea name="description" id="description" cols="30" rows="5" class="form-control"><?=$recipe['description'];?></textarea>
     </div>
     <div class="mb-3">
         <label for="ingredients" class="form-label">Ingredients</label>
-        <textarea name="ingredients" id="ingredients" cols="30" rows="5"></textarea>
+        <textarea name="ingredients" id="ingredients" cols="30" rows="5" class="form-control"><?=$recipe['ingredients'];?></textarea>
     </div>
     <div class="mb-3">
         <label for="instructions" class="form-label">Instructions</label>
-        <textarea name="instructions" id="instructions" cols="30" rows="5"></textarea>
+        <textarea name="instructions" id="instructions" cols="30" rows="5" class="form-control"><?=$recipe['instructions'];?></textarea>
     </div>
     <div class="mb-3">
         <label for="category" class="form-label">Catégorie</label>
