@@ -14,6 +14,7 @@ if(isset($_POST['saveRecipe'])){
     if( isset($_FILES['file']['tmp_name']) && isset($_FILES['file']['tmp_name']) != ''){
         $checkImage = getimagesize($_FILES['file']['tmp_name']);
         if($checkImage !== false){
+            $fileName = uniqid().'-'.$_FILES['file']['name'];
             move_uploaded_file($_FILES['file']['tmp_name'], _RECIPES_IMG_PATH_.$_FILES['file']['name']);
         } else {
             $errors[] = "Le fichier doit être une image";
