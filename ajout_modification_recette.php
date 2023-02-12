@@ -6,6 +6,13 @@ require_once('lib/category.php');
 
 $errors = [];
 $messages = [];
+$recipe = [
+    'title' => '',
+    'description' => '',
+    'ingredients' => '',
+    'instructions' => '', 
+    'category_id' => '',
+];
 
 $categories = getCategories($pdo);
 
